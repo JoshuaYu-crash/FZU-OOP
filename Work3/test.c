@@ -5,6 +5,6 @@ int main()
 	int i;
 	for(i=0;i<12;i++)
 	{
-		printf("%d\n",CNToNumJudge(num[i]));
+		printf("%d: %s %d\n",i+1,num[i],CNToNumJudge(num[i]));
 	} 
 }

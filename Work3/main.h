@@ -17,12 +17,10 @@ void DealVar();
 void CalculateVar();
 void OutPutVar();
 
-
 const char CN[11][10]={"零","一","二","三","四","五","六","七","八","九","十"}; // 汉字数字 
 char keywords[7][20]={"整数","等于","增加","减少","看看","负","结束"}; // 关键字 
 int target; // 将变量对应的变量定义为全局变量 
 char name[20]; // 将定义变量的中文定义为全局变量 
-
 
 //判断为正数的情况 
 void PositiveNumToCN(int num) {
@@ -183,28 +181,6 @@ void SetVar() {
 }
 
 
-// 处理变量
-void DealVar() {
-	while(1) {
-		char* command=StrInput();
-		if(strcmp(command,name)==0) {
-			CalculateVar();
-		}
-		else if(strcmp(command,keywords[4])==0) {
-			OutPutVar();
-		}
-		else if(strcmp(command,keywords[6])==0) {
-			break; 
-		}
-		else {
-			printf("错误，应输入：看看 / %s",name);
-			exit(0);
-		}
-		free(command);	
-	}
-}
-
-
 // 计算变量
 void CalculateVar() {
 	char* command=StrInput();
@@ -239,8 +215,29 @@ void OutPutVar() {
 } 
 
 
-int main() {
-	SetVar();
-	DealVar();
-	return 0;
-} 
+// 处理变量
+void DealVar() {
+	while(1) {
+		char* command=StrInput();
+		if(strcmp(command,name)==0) {
+			CalculateVar();
+		}
+		else if(strcmp(command,keywords[4])==0) {
+			OutPutVar();
+		}
+		else if(strcmp(command,keywords[6])==0) {
+			break; 
+		}
+		else {
+			printf("错误，应输入：看看 / %s",name);
+			exit(0);
+		}
+		free(command);	
+	}
+}
+
+
+
+
+
+
